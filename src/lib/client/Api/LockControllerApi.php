@@ -1,6 +1,6 @@
 <?php
 /**
- * ApproveControllerV1Api
+ * LockControllerApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * ApproveControllerV1Api Class Doc Comment
+ * LockControllerApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ApproveControllerV1Api
+class LockControllerApi
 {
     /**
      * @var ClientInterface
@@ -87,41 +87,43 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Operation addressContractUsingGET1
+     * Operation getNftLockersUsingGET
      *
-     * Check if the address is malicious
+     * Get lpv3 locker info
      *
-     * @param  string $address address (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
-     * @param  string $chain_id The chain_id of the blockchain. \&quot;1\&quot; means Ethereum;  \&quot;10\&quot; means Optimism; \&quot;25\&quot; means Cronos; \&quot;56\&quot; means BSC;  \&quot;66\&quot; means OKC; \&quot;100\&quot; means Gnosis; \&quot;128\&quot; means HECO;  \&quot;137\&quot; means Polygon;  \&quot;250\&quot; means Fantom; \&quot;321\&quot; means KCC; \&quot;324\&quot; means zkSync Era; \&quot;10001\&quot; means ETHW; \&quot;201022\&quot; means FON; \&quot;42161\&quot; means Arbitrum;  \&quot;43114\&quot; means Avalanche; \&quot;59140\&quot; means Linea; \&quot;tron\&quot; means Tron; \&quot;534352\&quot; means Scroll; \&quot;204\&quot; means opBNB; \&quot;solana\&quot; means Solana;  Solana and Tron address are case-sensitive; (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $pool_address poolAddress (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResponseWrapperAddressContract
+     * @return \Swagger\Client\Model\ResponseWrapperNftLockerResponse
      */
-    public function addressContractUsingGET1($address, $authorization = null, $chain_id = null)
+    public function getNftLockersUsingGET($chain_id, $page_num, $page_size, $pool_address)
     {
-        list($response) = $this->addressContractUsingGET1WithHttpInfo($address, $authorization, $chain_id);
+        list($response) = $this->getNftLockersUsingGETWithHttpInfo($chain_id, $page_num, $page_size, $pool_address);
         return $response;
     }
 
     /**
-     * Operation addressContractUsingGET1WithHttpInfo
+     * Operation getNftLockersUsingGETWithHttpInfo
      *
-     * Check if the address is malicious
+     * Get lpv3 locker info
      *
-     * @param  string $address address (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
-     * @param  string $chain_id The chain_id of the blockchain. \&quot;1\&quot; means Ethereum;  \&quot;10\&quot; means Optimism; \&quot;25\&quot; means Cronos; \&quot;56\&quot; means BSC;  \&quot;66\&quot; means OKC; \&quot;100\&quot; means Gnosis; \&quot;128\&quot; means HECO;  \&quot;137\&quot; means Polygon;  \&quot;250\&quot; means Fantom; \&quot;321\&quot; means KCC; \&quot;324\&quot; means zkSync Era; \&quot;10001\&quot; means ETHW; \&quot;201022\&quot; means FON; \&quot;42161\&quot; means Arbitrum;  \&quot;43114\&quot; means Avalanche; \&quot;59140\&quot; means Linea; \&quot;tron\&quot; means Tron; \&quot;534352\&quot; means Scroll; \&quot;204\&quot; means opBNB; \&quot;solana\&quot; means Solana;  Solana and Tron address are case-sensitive; (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $pool_address poolAddress (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResponseWrapperAddressContract, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\ResponseWrapperNftLockerResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addressContractUsingGET1WithHttpInfo($address, $authorization = null, $chain_id = null)
+    public function getNftLockersUsingGETWithHttpInfo($chain_id, $page_num, $page_size, $pool_address)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperAddressContract';
-        $request = $this->addressContractUsingGET1Request($address, $authorization, $chain_id);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperNftLockerResponse';
+        $request = $this->getNftLockersUsingGETRequest($chain_id, $page_num, $page_size, $pool_address);
 
         try {
             $options = $this->createHttpClientOption();
@@ -172,7 +174,7 @@ class ApproveControllerV1Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResponseWrapperAddressContract',
+                        '\Swagger\Client\Model\ResponseWrapperNftLockerResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -183,20 +185,21 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Operation addressContractUsingGET1Async
+     * Operation getNftLockersUsingGETAsync
      *
-     * Check if the address is malicious
+     * Get lpv3 locker info
      *
-     * @param  string $address address (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
-     * @param  string $chain_id The chain_id of the blockchain. \&quot;1\&quot; means Ethereum;  \&quot;10\&quot; means Optimism; \&quot;25\&quot; means Cronos; \&quot;56\&quot; means BSC;  \&quot;66\&quot; means OKC; \&quot;100\&quot; means Gnosis; \&quot;128\&quot; means HECO;  \&quot;137\&quot; means Polygon;  \&quot;250\&quot; means Fantom; \&quot;321\&quot; means KCC; \&quot;324\&quot; means zkSync Era; \&quot;10001\&quot; means ETHW; \&quot;201022\&quot; means FON; \&quot;42161\&quot; means Arbitrum;  \&quot;43114\&quot; means Avalanche; \&quot;59140\&quot; means Linea; \&quot;tron\&quot; means Tron; \&quot;534352\&quot; means Scroll; \&quot;204\&quot; means opBNB; \&quot;solana\&quot; means Solana;  Solana and Tron address are case-sensitive; (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $pool_address poolAddress (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addressContractUsingGET1Async($address, $authorization = null, $chain_id = null)
+    public function getNftLockersUsingGETAsync($chain_id, $page_num, $page_size, $pool_address)
     {
-        return $this->addressContractUsingGET1AsyncWithHttpInfo($address, $authorization, $chain_id)
+        return $this->getNftLockersUsingGETAsyncWithHttpInfo($chain_id, $page_num, $page_size, $pool_address)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -205,21 +208,22 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Operation addressContractUsingGET1AsyncWithHttpInfo
+     * Operation getNftLockersUsingGETAsyncWithHttpInfo
      *
-     * Check if the address is malicious
+     * Get lpv3 locker info
      *
-     * @param  string $address address (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
-     * @param  string $chain_id The chain_id of the blockchain. \&quot;1\&quot; means Ethereum;  \&quot;10\&quot; means Optimism; \&quot;25\&quot; means Cronos; \&quot;56\&quot; means BSC;  \&quot;66\&quot; means OKC; \&quot;100\&quot; means Gnosis; \&quot;128\&quot; means HECO;  \&quot;137\&quot; means Polygon;  \&quot;250\&quot; means Fantom; \&quot;321\&quot; means KCC; \&quot;324\&quot; means zkSync Era; \&quot;10001\&quot; means ETHW; \&quot;201022\&quot; means FON; \&quot;42161\&quot; means Arbitrum;  \&quot;43114\&quot; means Avalanche; \&quot;59140\&quot; means Linea; \&quot;tron\&quot; means Tron; \&quot;534352\&quot; means Scroll; \&quot;204\&quot; means opBNB; \&quot;solana\&quot; means Solana;  Solana and Tron address are case-sensitive; (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $pool_address poolAddress (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addressContractUsingGET1AsyncWithHttpInfo($address, $authorization = null, $chain_id = null)
+    public function getNftLockersUsingGETAsyncWithHttpInfo($chain_id, $page_num, $page_size, $pool_address)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperAddressContract';
-        $request = $this->addressContractUsingGET1Request($address, $authorization, $chain_id);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperNftLockerResponse';
+        $request = $this->getNftLockersUsingGETRequest($chain_id, $page_num, $page_size, $pool_address);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -259,25 +263,44 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Create request for operation 'addressContractUsingGET1'
+     * Create request for operation 'getNftLockersUsingGET'
      *
-     * @param  string $address address (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
-     * @param  string $chain_id The chain_id of the blockchain. \&quot;1\&quot; means Ethereum;  \&quot;10\&quot; means Optimism; \&quot;25\&quot; means Cronos; \&quot;56\&quot; means BSC;  \&quot;66\&quot; means OKC; \&quot;100\&quot; means Gnosis; \&quot;128\&quot; means HECO;  \&quot;137\&quot; means Polygon;  \&quot;250\&quot; means Fantom; \&quot;321\&quot; means KCC; \&quot;324\&quot; means zkSync Era; \&quot;10001\&quot; means ETHW; \&quot;201022\&quot; means FON; \&quot;42161\&quot; means Arbitrum;  \&quot;43114\&quot; means Avalanche; \&quot;59140\&quot; means Linea; \&quot;tron\&quot; means Tron; \&quot;534352\&quot; means Scroll; \&quot;204\&quot; means opBNB; \&quot;solana\&quot; means Solana;  Solana and Tron address are case-sensitive; (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $pool_address poolAddress (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addressContractUsingGET1Request($address, $authorization = null, $chain_id = null)
+    protected function getNftLockersUsingGETRequest($chain_id, $page_num, $page_size, $pool_address)
     {
-        // verify the required parameter 'address' is set
-        if ($address === null || (is_array($address) && count($address) === 0)) {
+        // verify the required parameter 'chain_id' is set
+        if ($chain_id === null || (is_array($chain_id) && count($chain_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $address when calling addressContractUsingGET1'
+                'Missing the required parameter $chain_id when calling getNftLockersUsingGET'
+            );
+        }
+        // verify the required parameter 'page_num' is set
+        if ($page_num === null || (is_array($page_num) && count($page_num) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $page_num when calling getNftLockersUsingGET'
+            );
+        }
+        // verify the required parameter 'page_size' is set
+        if ($page_size === null || (is_array($page_size) && count($page_size) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $page_size when calling getNftLockersUsingGET'
+            );
+        }
+        // verify the required parameter 'pool_address' is set
+        if ($pool_address === null || (is_array($pool_address) && count($pool_address) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pool_address when calling getNftLockersUsingGET'
             );
         }
 
-        $resourcePath = '/api/v1/address_security/{address}';
+        $resourcePath = '/open/api/v1/locks/lpv3';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -286,21 +309,21 @@ class ApproveControllerV1Api
 
         // query params
         if ($chain_id !== null) {
-            $queryParams['chain_id'] = ObjectSerializer::toQueryValue($chain_id, null);
+            $queryParams['chainId'] = ObjectSerializer::toQueryValue($chain_id, null);
         }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        // query params
+        if ($page_num !== null) {
+            $queryParams['pageNum'] = ObjectSerializer::toQueryValue($page_num, 'int32');
+        }
+        // query params
+        if ($page_size !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size, 'int32');
+        }
+        // query params
+        if ($pool_address !== null) {
+            $queryParams['poolAddress'] = ObjectSerializer::toQueryValue($pool_address, null);
         }
 
-        // path params
-        if ($address !== null) {
-            $resourcePath = str_replace(
-                '{' . 'address' . '}',
-                ObjectSerializer::toPathValue($address),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
@@ -367,41 +390,43 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Operation approvalContractUsingGET
+     * Operation getTokenLockersUsingGET
      *
-     * Check if the approval is secure
+     * Get token locker info
      *
-     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
-     * @param  string $contract_addresses Contract needs to be detected (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $token_address tokenAddress (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResponseWrapperContractApproveResponse
+     * @return \Swagger\Client\Model\ResponseWrapperTokenLockerResponse
      */
-    public function approvalContractUsingGET($chain_id, $contract_addresses, $authorization = null)
+    public function getTokenLockersUsingGET($chain_id, $page_num, $page_size, $token_address)
     {
-        list($response) = $this->approvalContractUsingGETWithHttpInfo($chain_id, $contract_addresses, $authorization);
+        list($response) = $this->getTokenLockersUsingGETWithHttpInfo($chain_id, $page_num, $page_size, $token_address);
         return $response;
     }
 
     /**
-     * Operation approvalContractUsingGETWithHttpInfo
+     * Operation getTokenLockersUsingGETWithHttpInfo
      *
-     * Check if the approval is secure
+     * Get token locker info
      *
-     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
-     * @param  string $contract_addresses Contract needs to be detected (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $token_address tokenAddress (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResponseWrapperContractApproveResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\ResponseWrapperTokenLockerResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function approvalContractUsingGETWithHttpInfo($chain_id, $contract_addresses, $authorization = null)
+    public function getTokenLockersUsingGETWithHttpInfo($chain_id, $page_num, $page_size, $token_address)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperContractApproveResponse';
-        $request = $this->approvalContractUsingGETRequest($chain_id, $contract_addresses, $authorization);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperTokenLockerResponse';
+        $request = $this->getTokenLockersUsingGETRequest($chain_id, $page_num, $page_size, $token_address);
 
         try {
             $options = $this->createHttpClientOption();
@@ -452,7 +477,7 @@ class ApproveControllerV1Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResponseWrapperContractApproveResponse',
+                        '\Swagger\Client\Model\ResponseWrapperTokenLockerResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -463,20 +488,21 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Operation approvalContractUsingGETAsync
+     * Operation getTokenLockersUsingGETAsync
      *
-     * Check if the approval is secure
+     * Get token locker info
      *
-     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
-     * @param  string $contract_addresses Contract needs to be detected (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $token_address tokenAddress (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approvalContractUsingGETAsync($chain_id, $contract_addresses, $authorization = null)
+    public function getTokenLockersUsingGETAsync($chain_id, $page_num, $page_size, $token_address)
     {
-        return $this->approvalContractUsingGETAsyncWithHttpInfo($chain_id, $contract_addresses, $authorization)
+        return $this->getTokenLockersUsingGETAsyncWithHttpInfo($chain_id, $page_num, $page_size, $token_address)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -485,21 +511,22 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Operation approvalContractUsingGETAsyncWithHttpInfo
+     * Operation getTokenLockersUsingGETAsyncWithHttpInfo
      *
-     * Check if the approval is secure
+     * Get token locker info
      *
-     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
-     * @param  string $contract_addresses Contract needs to be detected (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $token_address tokenAddress (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function approvalContractUsingGETAsyncWithHttpInfo($chain_id, $contract_addresses, $authorization = null)
+    public function getTokenLockersUsingGETAsyncWithHttpInfo($chain_id, $page_num, $page_size, $token_address)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperContractApproveResponse';
-        $request = $this->approvalContractUsingGETRequest($chain_id, $contract_addresses, $authorization);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperTokenLockerResponse';
+        $request = $this->getTokenLockersUsingGETRequest($chain_id, $page_num, $page_size, $token_address);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -539,31 +566,44 @@ class ApproveControllerV1Api
     }
 
     /**
-     * Create request for operation 'approvalContractUsingGET'
+     * Create request for operation 'getTokenLockersUsingGET'
      *
-     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
-     * @param  string $contract_addresses Contract needs to be detected (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $chain_id chainId (required)
+     * @param  int $page_num pageNum (required)
+     * @param  int $page_size pageSize (required)
+     * @param  string $token_address tokenAddress (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function approvalContractUsingGETRequest($chain_id, $contract_addresses, $authorization = null)
+    protected function getTokenLockersUsingGETRequest($chain_id, $page_num, $page_size, $token_address)
     {
         // verify the required parameter 'chain_id' is set
         if ($chain_id === null || (is_array($chain_id) && count($chain_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $chain_id when calling approvalContractUsingGET'
+                'Missing the required parameter $chain_id when calling getTokenLockersUsingGET'
             );
         }
-        // verify the required parameter 'contract_addresses' is set
-        if ($contract_addresses === null || (is_array($contract_addresses) && count($contract_addresses) === 0)) {
+        // verify the required parameter 'page_num' is set
+        if ($page_num === null || (is_array($page_num) && count($page_num) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract_addresses when calling approvalContractUsingGET'
+                'Missing the required parameter $page_num when calling getTokenLockersUsingGET'
+            );
+        }
+        // verify the required parameter 'page_size' is set
+        if ($page_size === null || (is_array($page_size) && count($page_size) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $page_size when calling getTokenLockersUsingGET'
+            );
+        }
+        // verify the required parameter 'token_address' is set
+        if ($token_address === null || (is_array($token_address) && count($token_address) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $token_address when calling getTokenLockersUsingGET'
             );
         }
 
-        $resourcePath = '/api/v1/approval_security/{chain_id}';
+        $resourcePath = '/open/api/v1/locks/token';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -571,22 +611,22 @@ class ApproveControllerV1Api
         $multipart = false;
 
         // query params
-        if ($contract_addresses !== null) {
-            $queryParams['contract_addresses'] = ObjectSerializer::toQueryValue($contract_addresses, null);
+        if ($chain_id !== null) {
+            $queryParams['chainId'] = ObjectSerializer::toQueryValue($chain_id, null);
         }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        // query params
+        if ($page_num !== null) {
+            $queryParams['pageNum'] = ObjectSerializer::toQueryValue($page_num, 'int32');
+        }
+        // query params
+        if ($page_size !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size, 'int32');
+        }
+        // query params
+        if ($token_address !== null) {
+            $queryParams['tokenAddress'] = ObjectSerializer::toQueryValue($token_address, null);
         }
 
-        // path params
-        if ($chain_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'chain_id' . '}',
-                ObjectSerializer::toPathValue($chain_id),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;

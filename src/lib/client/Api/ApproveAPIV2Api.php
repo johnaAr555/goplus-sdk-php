@@ -1,6 +1,6 @@
 <?php
 /**
- * ApproveControllerV2Api
+ * ApproveAPIV2Api
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * ApproveControllerV2Api Class Doc Comment
+ * ApproveAPIV2Api Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ApproveControllerV2Api
+class ApproveAPIV2Api
 {
     /**
      * @var ClientInterface
@@ -93,7 +93,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -189,7 +189,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -211,7 +211,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -263,7 +263,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -379,7 +379,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -398,7 +398,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -475,7 +475,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -497,7 +497,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -549,7 +549,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -665,7 +665,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -684,7 +684,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -761,7 +761,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -783,7 +783,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -835,7 +835,7 @@ class ApproveControllerV2Api
      *
      * @param  string $addresses contract address (required)
      * @param  string $chain_id chain id (required)
-     * @param  string $authorization Authorization (test: Bearer 81|9ihH8JzEuFu4MQ9DjWmH5WrNCPW...) (optional)
+     * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

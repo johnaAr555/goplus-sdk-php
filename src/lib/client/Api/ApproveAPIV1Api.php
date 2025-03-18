@@ -1,6 +1,6 @@
 <?php
 /**
- * TokenControllerV1Api
+ * ApproveAPIV1Api
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * TokenControllerV1Api Class Doc Comment
+ * ApproveAPIV1Api Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TokenControllerV1Api
+class ApproveAPIV1Api
 {
     /**
      * @var ClientInterface
@@ -87,39 +87,41 @@ class TokenControllerV1Api
     }
 
     /**
-     * Operation getChainsListUsingGET
+     * Operation addressContractUsingGET1
      *
-     * Get the list of chains supported by different functions.
+     * Check if the address is malicious
      *
+     * @param  string $address address (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
-     * @param  string $name API name. (optional)
+     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResponseWrapperListGetChainsList
+     * @return \Swagger\Client\Model\ResponseWrapperAddressContract
      */
-    public function getChainsListUsingGET($authorization = null, $name = null)
+    public function addressContractUsingGET1($address, $authorization = null, $chain_id = null)
     {
-        list($response) = $this->getChainsListUsingGETWithHttpInfo($authorization, $name);
+        list($response) = $this->addressContractUsingGET1WithHttpInfo($address, $authorization, $chain_id);
         return $response;
     }
 
     /**
-     * Operation getChainsListUsingGETWithHttpInfo
+     * Operation addressContractUsingGET1WithHttpInfo
      *
-     * Get the list of chains supported by different functions.
+     * Check if the address is malicious
      *
+     * @param  string $address address (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
-     * @param  string $name API name. (optional)
+     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResponseWrapperListGetChainsList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\ResponseWrapperAddressContract, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getChainsListUsingGETWithHttpInfo($authorization = null, $name = null)
+    public function addressContractUsingGET1WithHttpInfo($address, $authorization = null, $chain_id = null)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperListGetChainsList';
-        $request = $this->getChainsListUsingGETRequest($authorization, $name);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperAddressContract';
+        $request = $this->addressContractUsingGET1Request($address, $authorization, $chain_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -170,7 +172,7 @@ class TokenControllerV1Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResponseWrapperListGetChainsList',
+                        '\Swagger\Client\Model\ResponseWrapperAddressContract',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -181,19 +183,20 @@ class TokenControllerV1Api
     }
 
     /**
-     * Operation getChainsListUsingGETAsync
+     * Operation addressContractUsingGET1Async
      *
-     * Get the list of chains supported by different functions.
+     * Check if the address is malicious
      *
+     * @param  string $address address (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
-     * @param  string $name API name. (optional)
+     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChainsListUsingGETAsync($authorization = null, $name = null)
+    public function addressContractUsingGET1Async($address, $authorization = null, $chain_id = null)
     {
-        return $this->getChainsListUsingGETAsyncWithHttpInfo($authorization, $name)
+        return $this->addressContractUsingGET1AsyncWithHttpInfo($address, $authorization, $chain_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -202,20 +205,21 @@ class TokenControllerV1Api
     }
 
     /**
-     * Operation getChainsListUsingGETAsyncWithHttpInfo
+     * Operation addressContractUsingGET1AsyncWithHttpInfo
      *
-     * Get the list of chains supported by different functions.
+     * Check if the address is malicious
      *
+     * @param  string $address address (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
-     * @param  string $name API name. (optional)
+     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChainsListUsingGETAsyncWithHttpInfo($authorization = null, $name = null)
+    public function addressContractUsingGET1AsyncWithHttpInfo($address, $authorization = null, $chain_id = null)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperListGetChainsList';
-        $request = $this->getChainsListUsingGETRequest($authorization, $name);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperAddressContract';
+        $request = $this->addressContractUsingGET1Request($address, $authorization, $chain_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -255,18 +259,25 @@ class TokenControllerV1Api
     }
 
     /**
-     * Create request for operation 'getChainsListUsingGET'
+     * Create request for operation 'addressContractUsingGET1'
      *
+     * @param  string $address address (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
-     * @param  string $name API name. (optional)
+     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getChainsListUsingGETRequest($authorization = null, $name = null)
+    protected function addressContractUsingGET1Request($address, $authorization = null, $chain_id = null)
     {
+        // verify the required parameter 'address' is set
+        if ($address === null || (is_array($address) && count($address) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $address when calling addressContractUsingGET1'
+            );
+        }
 
-        $resourcePath = '/api/v1/supported_chains';
+        $resourcePath = '/api/v1/address_security/{address}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -274,14 +285,22 @@ class TokenControllerV1Api
         $multipart = false;
 
         // query params
-        if ($name !== null) {
-            $queryParams['name'] = ObjectSerializer::toQueryValue($name, null);
+        if ($chain_id !== null) {
+            $queryParams['chain_id'] = ObjectSerializer::toQueryValue($chain_id, null);
         }
         // header params
         if ($authorization !== null) {
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
+        // path params
+        if ($address !== null) {
+            $resourcePath = str_replace(
+                '{' . 'address' . '}',
+                ObjectSerializer::toPathValue($address),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -348,41 +367,41 @@ class TokenControllerV1Api
     }
 
     /**
-     * Operation tokenSecurityUsingGET1
+     * Operation approvalContractUsingGET
      *
-     * Get token's security and risk data.
+     * Check if the approval is secure
      *
-     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (required)
-     * @param  string $contract_addresses The contract address of tokens. (required)
+     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
+     * @param  string $contract_addresses Contract needs to be detected (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ResponseWrapperTokenSecurity
+     * @return \Swagger\Client\Model\ResponseWrapperContractApproveResponse
      */
-    public function tokenSecurityUsingGET1($chain_id, $contract_addresses, $authorization = null)
+    public function approvalContractUsingGET($chain_id, $contract_addresses, $authorization = null)
     {
-        list($response) = $this->tokenSecurityUsingGET1WithHttpInfo($chain_id, $contract_addresses, $authorization);
+        list($response) = $this->approvalContractUsingGETWithHttpInfo($chain_id, $contract_addresses, $authorization);
         return $response;
     }
 
     /**
-     * Operation tokenSecurityUsingGET1WithHttpInfo
+     * Operation approvalContractUsingGETWithHttpInfo
      *
-     * Get token's security and risk data.
+     * Check if the approval is secure
      *
-     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (required)
-     * @param  string $contract_addresses The contract address of tokens. (required)
+     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
+     * @param  string $contract_addresses Contract needs to be detected (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ResponseWrapperTokenSecurity, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\ResponseWrapperContractApproveResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tokenSecurityUsingGET1WithHttpInfo($chain_id, $contract_addresses, $authorization = null)
+    public function approvalContractUsingGETWithHttpInfo($chain_id, $contract_addresses, $authorization = null)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperTokenSecurity';
-        $request = $this->tokenSecurityUsingGET1Request($chain_id, $contract_addresses, $authorization);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperContractApproveResponse';
+        $request = $this->approvalContractUsingGETRequest($chain_id, $contract_addresses, $authorization);
 
         try {
             $options = $this->createHttpClientOption();
@@ -433,7 +452,7 @@ class TokenControllerV1Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ResponseWrapperTokenSecurity',
+                        '\Swagger\Client\Model\ResponseWrapperContractApproveResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -444,20 +463,20 @@ class TokenControllerV1Api
     }
 
     /**
-     * Operation tokenSecurityUsingGET1Async
+     * Operation approvalContractUsingGETAsync
      *
-     * Get token's security and risk data.
+     * Check if the approval is secure
      *
-     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (required)
-     * @param  string $contract_addresses The contract address of tokens. (required)
+     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
+     * @param  string $contract_addresses Contract needs to be detected (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tokenSecurityUsingGET1Async($chain_id, $contract_addresses, $authorization = null)
+    public function approvalContractUsingGETAsync($chain_id, $contract_addresses, $authorization = null)
     {
-        return $this->tokenSecurityUsingGET1AsyncWithHttpInfo($chain_id, $contract_addresses, $authorization)
+        return $this->approvalContractUsingGETAsyncWithHttpInfo($chain_id, $contract_addresses, $authorization)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -466,21 +485,21 @@ class TokenControllerV1Api
     }
 
     /**
-     * Operation tokenSecurityUsingGET1AsyncWithHttpInfo
+     * Operation approvalContractUsingGETAsyncWithHttpInfo
      *
-     * Get token's security and risk data.
+     * Check if the approval is secure
      *
-     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (required)
-     * @param  string $contract_addresses The contract address of tokens. (required)
+     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
+     * @param  string $contract_addresses Contract needs to be detected (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tokenSecurityUsingGET1AsyncWithHttpInfo($chain_id, $contract_addresses, $authorization = null)
+    public function approvalContractUsingGETAsyncWithHttpInfo($chain_id, $contract_addresses, $authorization = null)
     {
-        $returnType = '\Swagger\Client\Model\ResponseWrapperTokenSecurity';
-        $request = $this->tokenSecurityUsingGET1Request($chain_id, $contract_addresses, $authorization);
+        $returnType = '\Swagger\Client\Model\ResponseWrapperContractApproveResponse';
+        $request = $this->approvalContractUsingGETRequest($chain_id, $contract_addresses, $authorization);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -520,31 +539,31 @@ class TokenControllerV1Api
     }
 
     /**
-     * Create request for operation 'tokenSecurityUsingGET1'
+     * Create request for operation 'approvalContractUsingGET'
      *
-     * @param  string $chain_id The chain_id of the blockchain. To check the corresponding blockchain name for a given chain_id, please visit: https://docs.gopluslabs.io/reference/response-details-9 (required)
-     * @param  string $contract_addresses The contract address of tokens. (required)
+     * @param  string $chain_id Chain id, (ETH: 1,  BSC: 56, OKC: 66, Heco: 128, Polygon: 137, Fantom:250, Arbitrum: 42161, Avalanche: 43114) (required)
+     * @param  string $contract_addresses Contract needs to be detected (required)
      * @param  string $authorization Authorization token in the format: Bearer &lt;token&gt; (e.g., Bearer eyJsZXZlbCI6NSwiYXBwTmFtZSI6ImF2cyIsImFwcEtleSI6IjFaW...) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function tokenSecurityUsingGET1Request($chain_id, $contract_addresses, $authorization = null)
+    protected function approvalContractUsingGETRequest($chain_id, $contract_addresses, $authorization = null)
     {
         // verify the required parameter 'chain_id' is set
         if ($chain_id === null || (is_array($chain_id) && count($chain_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $chain_id when calling tokenSecurityUsingGET1'
+                'Missing the required parameter $chain_id when calling approvalContractUsingGET'
             );
         }
         // verify the required parameter 'contract_addresses' is set
         if ($contract_addresses === null || (is_array($contract_addresses) && count($contract_addresses) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contract_addresses when calling tokenSecurityUsingGET1'
+                'Missing the required parameter $contract_addresses when calling approvalContractUsingGET'
             );
         }
 
-        $resourcePath = '/api/v1/token_security/{chain_id}';
+        $resourcePath = '/api/v1/approval_security/{chain_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
